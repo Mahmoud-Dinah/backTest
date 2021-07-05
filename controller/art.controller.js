@@ -42,7 +42,7 @@ if (data.length > 0){
     description: description
   });
   newArtOne.save();
-  res.send(newArtOne);
+  res.send('item added to your fav');
 
 }
 
@@ -86,7 +86,9 @@ if (error){
   data[0].description = description;
 
   data[0].save();
-  res.send(data);
+  artOneModel.find({}, (error, data)=> {
+    res.send(data);
+  });
 }
 });
 
